@@ -1,0 +1,10 @@
+*.gz
+*.out
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
+*.pdf
+*.c
+*.exe
+/.vscode

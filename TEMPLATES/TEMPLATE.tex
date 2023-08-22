@@ -1,0 +1,244 @@
+
+\documentclass[a4paper,12pt]{article}
+\author{}
+\date{}
+\usepackage[papersize={216mm,330mm},tmargin=20mm,bmargin=20mm,lmargin=20mm,rmargin=20mm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb} %,mathabx}%\for eqref
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{ragged2e} % justifying
+\usepackage{colortbl}
+\usepackage{cancel}
+\usepackage{stackengine}
+\usepackage{mathtools}
+\usepackage{tikz}   %create images
+\usepackage{tkz-fct}    %create graphics
+
+%====================================================
+%============= INFORMACAO DE ENTRADA=================
+%====================================================
+
+\def\nomedoaluno{Lucas Manoel Arruda Pinheiro}
+\def\matricula{20230046509}
+
+%IMD1002 - Análise Combinatória
+%IMD0024 - Cálculo 1
+%IMD0034 - Vetores e Geometria Analítica
+\def\coddisciplina{IMD0034}
+\def\nomedisciplina{VETORES E GEOMETRIA ANALÍTICA}
+\def\codturma{XXXXXXXXX}
+\def\codatividade{U1\_VGATRAB10}
+
+%====================================================
+%====================== FIM =========================
+%====================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Aluno: \nomedoaluno\\ Matrícula: \matricula}
+\chead{\thepage}
+\rhead{Instituto Metrópole Digital - UFRN \\
+Turma \codturma}
+\lfoot{\nomedisciplina}
+\cfoot{Atividade \codatividade}
+\rfoot{Prof. Samyr Jácome}
+
+\title{
+\vspace{-2cm}
+\Large \textbf{Universidade Federal do Rio Grande do Norte}\\ 
+Instituto Metrópole Digital \\ 
+\coddisciplina $\;$ - \nomedisciplina \\ 
+TURMA \codturma \\
+\vspace{5mm} \Large\textbf{ATIVIDADE \codatividade} \\
+\normalsize Natal-RN, \today\\
+\vspace{0.7cm} \large \textit{Prof. Samyr Jácome}\\
+
+\justifying
+\vspace{0.5cm} \hspace{-0.82cm}
+\begin{minipage}{.6\linewidth}
+    \large \textbf{Aluno:} \nomedoaluno
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+    \begin{flushright}
+        \large \textbf{Matrícula:} \matricula
+    \end{flushright}
+\end{minipage}
+}
+
+% Tirar a identação do paragrafo no texto
+\def\tirarident{\setlength{\parindent}{0cm}} % padrão 15pt.
+
+\setlength{\marginparwidth}{2cm}
+
+%---------------------------------------------------------------
+%---------------COMANDO PARA SETA DE ESCALONAMENTO--------------
+%---------------------------------------------------------------
+
+\newcommand{\seta}[3][-0.05cm]{%
+  \stackon[#1]{
+    $\xrightarrow{\mathmakebox[\setawidth]{}}$}{
+    \scriptsize{$#2 \,\leftarrow\, #3$}
+    }
+}
+
+\newcommand{\troca}[3][-0.05cm]{%
+  \stackon[#1]{
+    $\xrightarrow{\mathmakebox[\setawidth]{}}$}{
+    \scriptsize{$#2 \,\leftrightarrow\, #3$}
+    }
+}
+
+\newlength{\setawidth}% row operation width
+\AtBeginDocument{\setlength{\setawidth}{2.0cm}}
+
+%---------------------------------------------------------------
+%--------------------------FIM----------------------------------
+%---------------------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\vspace{-2cm}
+\section*{Exercícios}
+
+\tirarident
+
+\textbf{Questão 01, pág. xx:}\\
+
+Comando Latex para fazer escalonamento de matrizes\\
+
+\begin{alignat*}{2}
+    %------ PRIMEIRA LINHA -------
+    \begin{bmatrix}
+         1 &  2 & 0\\
+        -1 &  1 & 2\\
+         1 &  0 & 2
+    \end{bmatrix}
+    &\!\begin{aligned} % O \begin{aligned} \end{aligned} deve ser usado sempre que o houver mais de suas setas para idicar as operações de escalonamento.
+        &\seta{L_2}{L_2 + L_1}\\
+        &\seta{L_3}{L_3 - L_1}
+    \end{aligned}
+    \begin{bmatrix}
+         1 &  2 & 0\\
+         0 &  3 & 2\\
+         0 & -2 & 2
+    \end{bmatrix}
+    % deve-se usa && quando quiser escrever a próxima matriz na mesma linha
+    &&\troca{L_2}{-\frac{1}{2}L_3}
+    \begin{bmatrix}
+         1 &  2 & 0\\
+         0 &  1 & -1\\
+         0 & 3 & 2
+    \end{bmatrix}
+    %------ FIM DAPRIMEIRA LINHA -------
+    \\ % PULA LINHA
+    %------ INICIO DA SEGUNDA LINHA -------
+    &\!\begin{aligned} 
+        &\seta{L_1}{L_1 - 2L_2}\\
+        &\seta{L_3}{L_3 - 3L_2}
+    \end{aligned}
+    \begin{bmatrix}
+         1 & 0 & 2\\
+         0 & 1 & -1\\
+         0 & 0 & 4
+    \end{bmatrix}
+    &&\seta{L_3}{\frac{1}{4}L_3}
+    \begin{bmatrix}
+         1 & 0 & 2\\
+         0 & 1 & -1\\
+         0 & 0 & 1
+    \end{bmatrix}
+    %------ FIM DA SEGUNDA LINHA -------
+    \\ % PULA LINHA
+    %------ INICIO DA TERCEIRA LINHA -------
+    &\!\begin{aligned} 
+        &\seta{L_1}{L_1 - 2L_3}\\
+        &\seta{L_2}{L_2 + L_3}
+    \end{aligned}
+    \begin{bmatrix}
+         1 & 0 & 0\\
+         0 & 1 & 0\\
+         0 & 0 & 1
+    \end{bmatrix} % ATENCAO: NAO DEIXAR LINHA EM BRANCO ENTRE \end{bmatrix} E \end{alignat*}
+\end{alignat*}
+
+
+\textbf{Questão 02, pág. xx:}\\
+
+A adição da matriz $A$ com a matriz $B$ é
+
+    \begin{align*}
+        A + B &=
+            \underbrace{
+            \begin{bmatrix}
+                10 & 7 & 4\\
+                9  & 8 & 6\\
+                11 & 8 & 6\\
+                10 & 9 & 5
+            \end{bmatrix}}_{A} +
+            \underbrace{
+            \begin{bmatrix}
+                11 & 10 & 6\\
+                10 & \phantom{2}9  & 6\\
+                10 & \phantom{2}8  & 4\\
+                \phantom{2}8  & \phantom{2}7  & 4\\
+            \end{bmatrix}}_{B} 
+        =
+        \begin{bmatrix}
+                10+11 & 7+11 & 4+6\\
+                 \phantom{2}9+10  & 8+\phantom{2}9 & 6+6\\
+                11+10 & 8+\phantom{2}8 & 6+4\\
+                10+\phantom{2}8 & 9+\phantom{2}7 & 5+4
+        \end{bmatrix}\\
+        & =
+        \underbrace{\begin{bmatrix}
+            21 & 19 & 11\\
+            21 & 17 & 12\\
+            20 & 16 & \phantom{2}8\\
+            17 & 14 & \phantom{2}9\\
+        \end{bmatrix}}_{A + B}
+    \end{align*}
+
+\textbf{Questão 03, pág. xx:}\\
+
+A multiplicação de uma matriz por uma matriz coluna gera uma matriz coluna
+
+    \vspace{0.5cm} 
+    \centering
+$
+        \begin{bmatrix}
+          x \\ y \\ z \\ w
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            11.5 & 9.5 & 5.5\\
+            11.5 & 8.5 & 6.0\\
+            10.0 & 8.0 & 4.0\\
+            \phantom{0}8.5 & 7.0 & 4.5\\
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 \\ 4 \\ 9\\
+        \end{bmatrix}        
+        = 
+        \begin{bmatrix}
+            11.5\cdot 2 + 9.5\cdot 4 + 5.5\cdot 9\\
+            11.5\cdot 2 + 8.5\cdot 4 + 6.0\cdot 9\\
+            10.0\cdot 2 + 8.0\cdot 4 + 4.0\cdot 9\\
+            8.5\cdot 2 + 7.0\cdot 4 + 4.5\cdot 9\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            110.5 \\ 111 \\ 88 \\85.5
+        \end{bmatrix}        
+$
+    
+
+\end{document}
