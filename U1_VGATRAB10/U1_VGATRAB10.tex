@@ -252,7 +252,7 @@ TURMA \codturma \\
 
 \textbf{(f) $B - B^{T}$}
 \begin{align*}
-B - B^{T}&=
+B \cdot B^{T}&=
     \underbrace{
     \begin{bmatrix}
         4 & -1\\
@@ -282,34 +282,145 @@ B - B^{T}&=
 
 \textbf{(a) $A \cdot B$}
 \begin{align*}
-    A \cdot B&=
-        \underbrace{
-        \begin{bmatrix}
-            4 & -1\\
-            0 & 2
-        \end{bmatrix}}_{B} 
-        -
-        \underbrace{
-        \begin{bmatrix}
-            4 & 0\\
-            -1 & 2
-        \end{bmatrix}}_{B^{T}} \\
-        &=
-        \underbrace{
-        \begin{bmatrix}
-            4 - 4 & -1 - 0\\
-            0 - (-1) & 2 - 2
-        \end{bmatrix}}_{B - B^{T}} \\
-        &=
-        \underbrace{
-        \begin{bmatrix}
-            0 & -1\\
-            1 & 0
-        \end{bmatrix}}_{B - B^{T}} 
-    \end{align*}
+A \cdot B&=
+    \underbrace{
+    \begin{bmatrix}
+        3 & 0\\
+        -1 & 2\\
+        1 & 1
+    \end{bmatrix}}_{A} 
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        4 & -1\\
+        0 & 2
+    \end{bmatrix}}_{B} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        (3\cdot 4 + 0 \cdot 0) & (3 \cdot -1 + 0 \cdot 2)\\
+        ((-1) \cdot 4 + 2 \cdot 0) & ((-1) \cdot (-1) + 2 \cdot 2)\\
+        (1 \cdot 4 + 1 \cdot 0) & (1 \cdot (-1) + 1 \cdot 2)
+    \end{bmatrix}}_{A \cdot B} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        12 & -3\\
+        -4 & 5 \\
+        4 & 1
+    \end{bmatrix}}_{A \cdot B} 
+\end{align*}
 
-\textbf{(c)}
-\textbf{(d)}
+\textbf{(c) $(3 \cdot E) \cdot D$}
+\begin{align*}
+    (3 \cdot E) \cdot D&= (3 \cdot
+    \underbrace{
+    \begin{bmatrix}
+        6 & 1 & 3\\
+        -1 & 1 & 2\\
+        4 & 1 & 3
+    \end{bmatrix}}_{E})
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        1 & 5 & 2\\
+        -1 & 0 & 1\\
+        3 & 2 & 4
+    \end{bmatrix}}_{D} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        3 \cdot 6 & 3 \cdot 1 & 3 \cdot 3\\
+        3 \cdot -1 & 3 \cdot 1 & 3 \cdot 2\\
+        3 \cdot 4 & 3 \cdot 1 & 3 \cdot 3
+    \end{bmatrix}}_{3 \cdot E}
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        1 & 5 & 2\\
+        -1 & 0 & 1\\
+        3 & 2 & 4
+    \end{bmatrix}}_{D} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        18 & 3 & 9\\
+        -3 & 3 & 6\\
+        12 & 3 & 9
+    \end{bmatrix}}_{3 \cdot E}
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        1 & 5 & 2\\
+        -1 & 0 & 1\\
+        3 & 2 & 4
+    \end{bmatrix}}_{D} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        (18\cdot 1 + 3 \cdot -1 + 9 \cdot 3) & (18 \cdot 5 + 3 \cdot 0 + 9 \cdot 2) & (18 \cdot 2 + 3 \cdot 1 + 9 \cdot 4)\\
+        (-3\cdot 1 + 3 \cdot -1 + 6 \cdot 3) & (-3 \cdot 5 + 3 \cdot 0 + 6 \cdot 2) & (-3 \cdot 2 + 3 \cdot 1 + 6 \cdot 4)\\
+        (12\cdot 1 + 3 \cdot -1 + 9 \cdot 3) & (12 \cdot 5 + 3 \cdot 0 + 9 \cdot 2) & (12 \cdot 2 + 3 \cdot 1 + 9 \cdot 4)
+    \end{bmatrix}}_{(3 \cdot E) \cdot D} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        42 & 108 & 75\\
+        12 & -3 & 21\\
+        36 & 78 & 63
+    \end{bmatrix}}_{(3 \cdot E) \cdot D} 
+\end{align*}
+
+\textbf{(d) $(A\cdot B)\cdot C$}
+\begin{align*}
+    (A\cdot B)\cdot C &=( 
+    \underbrace{
+    \begin{bmatrix}
+        3 & 0\\
+        -1 & 2\\
+        1 & 1
+    \end{bmatrix}}_{A} 
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        4 & -1\\
+        0 & 2
+    \end{bmatrix}}_{B})
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        1 & 4 & 2\\
+        3 & 1 & 5
+    \end{bmatrix}}_{C} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        12 & -3\\
+        -4 & 5 \\
+        4 & 1
+    \end{bmatrix}}_{A \cdot B}
+    \cdot
+    \underbrace{
+    \begin{bmatrix}
+        1 & 4 & 2\\
+        3 & 1 & 5
+    \end{bmatrix}}_{C} \\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        (12 \cdot 1 + -3 \cdot 3) & (12 \cdot 4 + -3 \cdot 1) & (12 \cdot 2 + -3 \cdot 5)\\
+        (-4 \cdot 1 + 5 \cdot 3) & (-4 \cdot 4 + 5 \cdot 1) & (-4 \cdot 2 + 5 \cdot 5)\\
+        (4 \cdot 1 + 1 \cdot 3) & (4 \cdot 4 + 1 \cdot 1) & (4 \cdot 2 + 1 \cdot 5)
+    \end{bmatrix}}_{(AB) \cdot C}\\
+    &=
+    \underbrace{
+    \begin{bmatrix}
+        3 & 45 & 9 \\
+        11 & -11 & 17 \\
+        7 & 17 & 13
+    \end{bmatrix}}_{(AB) \cdot C}
+\end{align*}
+
 
 \textbf{Questão 07, pág. 36:}\\
 \textbf{(a)}
