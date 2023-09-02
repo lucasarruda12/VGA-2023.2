@@ -1,0 +1,340 @@
+
+\documentclass[a4paper,12pt]{article}
+\author{}
+\date{}
+\usepackage[papersize={216mm,330mm},tmargin=20mm,bmargin=20mm,lmargin=20mm,rmargin=20mm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb} %,mathabx}%\for eqref
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{ragged2e} % justifying
+\usepackage{colortbl}
+\usepackage{cancel}
+\usepackage{stackengine}
+\usepackage{mathtools}
+\usepackage{tikz}   %create images
+\usepackage{tkz-fct}    %create graphics
+
+%====================================================
+%============= INFORMACAO DE ENTRADA=================
+%====================================================
+
+\def\nomedoaluno{Lucas Manoel Arruda Pinheiro}
+\def\matricula{20230046509}
+
+%IMD1002 - Análise Combinatória
+%IMD0024 - Cálculo 1
+%IMD0034 - Vetores e Geometria Analítica
+\def\coddisciplina{IMD0034}
+\def\nomedisciplina{VETORES E GEOMETRIA ANALÍTICA}
+\def\codturma{01}
+\def\codatividade{U1\_VGATRAB20}
+
+%====================================================
+%====================== FIM =========================
+%====================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Aluno: \nomedoaluno\\ Matrícula: \matricula}
+\chead{\thepage}
+\rhead{Instituto Metrópole Digital - UFRN \\
+Turma \codturma}
+\lfoot{\nomedisciplina}
+\cfoot{Atividade \codatividade}
+\rfoot{Prof. Samyr Jácome}
+
+\title{
+\vspace{-2cm}
+\Large \textbf{Universidade Federal do Rio Grande do Norte}\\ 
+Instituto Metrópole Digital \\ 
+\coddisciplina $\;$ - \nomedisciplina \\ 
+TURMA \codturma \\
+\vspace{5mm} \Large\textbf{ATIVIDADE \codatividade} \\
+\normalsize Natal-RN, \today\\
+\vspace{0.7cm} \large \textit{Prof. Samyr Jácome}\\
+
+\justifying
+\vspace{0.5cm} \hspace{-0.82cm}
+\begin{minipage}{.6\linewidth}
+    \large \textbf{Aluno:} \nomedoaluno
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+    \begin{flushright}
+        \large \textbf{Matrícula:} \matricula
+    \end{flushright}
+\end{minipage}
+}
+
+% Tirar a identação do paragrafo no texto
+\def\tirarident{\setlength{\parindent}{0cm}} % padrão 15pt.
+
+\setlength{\marginparwidth}{2cm}
+
+%---------------------------------------------------------------
+%---------------COMANDO PARA SETA DE ESCALONAMENTO--------------
+%---------------------------------------------------------------
+
+\newcommand{\seta}[3][-0.05cm]{%
+  \stackon[#1]{
+    $\xrightarrow{\mathmakebox[\setawidth]{}}$}{
+    \scriptsize{$#2 \,\leftarrow\, #3$}
+    }
+}
+
+\newcommand{\troca}[3][-0.05cm]{%
+  \stackon[#1]{
+    $\xrightarrow{\mathmakebox[\setawidth]{}}$}{
+    \scriptsize{$#2 \,\leftrightarrow\, #3$}
+    }
+}
+
+\newlength{\setawidth}% row operation width
+\AtBeginDocument{\setlength{\setawidth}{2.0cm}}
+
+%---------------------------------------------------------------
+%--------------------------FIM----------------------------------
+%---------------------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\vspace{-2cm}
+\section*{Exercícios}
+
+\tirarident
+
+\textbf{Questão 07, pág. 23:}
+\begin{alignat*}{2}
+    \begin{bmatrix}
+        1 & -1 & 2 & -1 & -1 \\
+        2 & 1 & -2 & -2 & -2 \\
+        -1 & 2 & -4 & 1 & 1 \\
+        3 & 0 & 0 & -3 & -3 \\
+    \end{bmatrix}
+    &\!\begin{aligned}
+        &\seta{L_2}{L_2 - 2L_1}\\
+        &\seta{L_3}{L_3 + L_1}\\
+        &\seta{L_4}{L_4 - 3L_1}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & -1 & 2 & -1 & -1 \\
+        0 & 3 & -6 & 0 & 0 \\
+        0 & 1 & -2 & 0 & 0 \\
+        0 & 3 & -6 & 0 & 0 \\
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_2}{L_2/3}\\
+        &\seta{L_4}{L_4/3}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & -1 & 2 & -1 & -1 \\
+        0 & 1 & -2 & 0 & 0 \\
+        0 & 1 & -2 & 0 & 0 \\
+        0 & 1 & -1 & 0 & 0 \\
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3 - L_2}\\
+        &\seta{L_4}{L_4 - L_2}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & -1 & 2 & -1 & -1 \\
+        0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_1}{L_1 + L_2}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & 0 & 0 & -1 & -1 \\
+        0 & 1 & -2 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+    \end{bmatrix}
+\end{alignat*}
+
+Como não foi possível concluir o escalonamento, podemos assumir que esse sistema tem infinitas soluções, no padrão $\{x, 2z,z, x+1\}$, para todos $x, z \in \mathbb{Z}$. \\
+    
+
+\textbf{Questão 09, pág. 23:}
+
+\begin{alignat*}{2}
+    \begin{bmatrix}
+        1 & 1 & 2 & 8\\
+        -1 & -2 & 3 & 1\\
+        3 & -7 & 4 & 10
+    \end{bmatrix}
+    &\!\begin{aligned}
+        &\seta{L_2}{L_2 + L_1}\\
+        &\seta{L_3}{L_3 - 3L_1}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & 1 & 2 & 8\\
+        0 & -1 & 5 & 9\\
+        0 & -10 & -2 & -14
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3 - 10L_2}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & 1 & 2 & 8\\
+        0 & -1 & 5 & 9\\
+        0 & 0 & 26 & 52
+    \end{bmatrix}
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3 - 10L_2}
+    \end{aligned}
+    \begin{bmatrix}
+        1 & 1 & 2 & 8\\
+        0 & -1 & 5 & 9\\
+        0 & 0 & 1 & 2
+    \end{bmatrix}
+\end{alignat*}
+
+Reescrevemos essa matriz como sistema linear:
+
+\begin{equation}
+    \begin{cases}
+        x_1 +  x_2 +  2x_3 = 8 \\
+        -x_2  + 5x_ 3 = 9 \\
+        x_3 = 2
+    \end{cases}
+\end{equation}
+
+Substituimos $x_3 = 2$ na segunda equação do sistema:
+\begin{align*}
+    -x_2  + 5x_ 3 = 9 &\implies -x_2  + 5\cdot 2 = 9\\
+    &\implies -x_2  + 10 = 9\\
+    &\implies x_ 2 = 1
+\end{align*}
+
+Substituimos $x_2 = 1$ e $x_3 = 2$ na primeira equação do sistema:
+\begin{align*}
+    x_1 +  x_2 +  2x_3 = 8 &\implies x_1 + 1 + 2\cdot2 = 8\\
+    &\implies x_1 + 1 + 4 = 8\\
+    &\implies x_1 = 3
+\end{align*}
+
+Assim, podemos afirmar que o conjunto solução do sistema apresentado é $\{3, 1, 2\}$ \\
+
+\textbf{Questão 19, pág. 23:}
+
+A matriz aumentada desse sistema é:
+
+\begin{alignat*}{2}
+    \begin{bmatrix}
+        3 & 1 & 1 & 1 & 0\\
+        5 & -1 & 1 & -1 & 0
+    \end{bmatrix}
+\end{alignat*}
+
+Resolvendo por eliminação de Gauss-Jordan:
+
+\begin{alignat*}{2}
+    \begin{bmatrix}
+        3 & 1 & 1 & 1 & 0\\
+        5 & -1 & 1 & -1 & 0
+    \end{bmatrix}
+    &\!\begin{aligned}
+        &\seta{L_1}{L_1 \cdot 5}\\
+        &\seta{L_2}{L_2 \cdot 3}
+    \end{aligned}
+    \begin{bmatrix}
+        15 & 5 & 5 & 5 & 0\\
+        15 & -3 & 3 & -3 & 0
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_2}{L_2 - L_1}
+    \end{aligned}
+    \begin{bmatrix}
+        15 & 5 & 5 & 5 & 0\\
+        0 & -8 & -2 & -8 & 0
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_1}{4L_1 / 5}\\
+        &\seta{L_2}{L_2 / (-2)}
+    \end{aligned}
+    \begin{bmatrix}
+        12 & 4 & 4 & 4 & 0\\
+        0 & 4 & 1 & 4 & 0
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_1}{L_1 - L_2}\\
+    \end{aligned}
+    \begin{bmatrix}
+        12 & 0 & 3 & 0 & 0\\
+        0 & 4 & 1 & 4 & 0
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_1}{L_1/3}\\
+    \end{aligned}
+    \begin{bmatrix}
+        4 & 0 & 1 & 0 & 0\\
+        0 & 4 & 1 & 4 & 0
+    \end{bmatrix}
+\end{alignat*}
+
+Como não foi possível concluir o escalonamento, podemos assumir que esse sistema tem infinitas soluções, no padrão $\{-\frac{x_3}{4}, -\frac{x_3+4x_4}{4},x_3, x_4\}$, para todos $x_3, x_4 \in \mathbb{Z}$. \\
+
+\textbf{Questão 32, pág. 24:}
+
+\begin{alignat*}{2}
+    \begin{bmatrix}
+        2 & 1 & 3\\
+        0 & -2 & -29\\
+        3 & 4 & 5
+    \end{bmatrix}
+    &\!\begin{aligned}
+        &\seta{L_3}{L_2 \cdot 2}
+    \end{aligned}
+    \begin{bmatrix}
+        2 & 1 & 3\\
+        0 & -2 & -29\\
+        6 & 8 & 10
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3 - 3L_1}
+    \end{aligned}
+    \begin{bmatrix}
+        2 & 1 & 3\\
+        0 & -2 & -29\\
+        0 & 5 & 1
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3 \cdot 2}
+    \end{aligned}
+    \begin{bmatrix}
+        6 & 3 & 9\\
+        0 & -2 & -29\\
+        0 & 10 & 2
+    \end{bmatrix}
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_2 + 5L_2}
+    \end{aligned}
+    \begin{bmatrix}
+        6 & 3 & 9\\
+        0 & -2 & -29\\
+        0 & 0 & -143
+    \end{bmatrix}    
+\end{alignat*}
+
+\end{document}
