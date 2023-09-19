@@ -164,8 +164,7 @@ TURMA \codturma \\
     \end{bmatrix}
 \end{alignat*}
 
-Como não foi possível concluir o escalonamento, podemos assumir que esse sistema tem infinitas soluções, no padrão $\{x, 2z,z, x+1\}$, para todos $x, z \in \mathbb{R}$. \\
-    
+Não podemos mais continuar com o escalonamento e, portanto, a resposta é: (x,y,z,w) = (r, 2s, s, r+1)    
 
 \textbf{Questão 09, pág. 23:}
 
@@ -290,7 +289,8 @@ Resolvendo por eliminação de Gauss-Jordan:
     \end{bmatrix}
 \end{alignat*}
 
-Como não foi possível concluir o escalonamento, podemos assumir que esse sistema tem infinitas soluções, no padrão $\{-\frac{x_3}{4}, -\frac{x_3+4x_4}{4},x_3, x_4\}$, para todos $x_3, x_4 \in \mathbb{R}$. \\
+Não podemos mais continuar com o escalonamento e, portanto, a resposta é: ($x_1, x_2, x_3, x_ 4$) = ($-\frac{r}{4}, -\frac{r+4s}{4},r, s\ $)
+
 \textbf{Questão 32, pág. 24:}
 
 \begin{alignat*}{2}
@@ -334,6 +334,25 @@ Como não foi possível concluir o escalonamento, podemos assumir que esse siste
         0 & -2 & -29\\
         0 & 0 & -143
     \end{bmatrix}    
+    \\
+    &\!\begin{aligned}
+        &\seta{L_3}{L_3/-143}
+    \end{aligned}
+    \begin{bmatrix}
+        6 & 3 & 9\\
+        0 & -2 & -29\\
+        0 & 0 & 1
+    \end{bmatrix}    
+    \\
+    &\!\begin{aligned}
+        &\seta{L_2}{L_2 + 29L3}\\
+        &\seta{L_1}{L_1 - 9L3}
+    \end{aligned}
+    \begin{bmatrix}
+        6 & 3 & 0 \\
+        0 & -2 & 0\\
+        0 & 0 & 1
+    \end{bmatrix} 
 \end{alignat*}
 
 \end{document}
